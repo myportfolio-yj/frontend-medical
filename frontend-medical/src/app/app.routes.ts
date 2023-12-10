@@ -1,3 +1,29 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
-export const routes: Routes = [];
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AppComponent } from './app.component';
+import { LoginComponent } from './auth/login/login.component';
+
+
+export const routes: Routes = [
+  {
+    path: '',
+    redirectTo: '/inicio',
+    pathMatch: 'full'
+  },
+  {
+    path: 'inicio',
+    component: DashboardComponent
+  },
+  {
+    path: 'iniciar-sesion',
+    component: LoginComponent
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
